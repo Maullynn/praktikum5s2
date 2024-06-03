@@ -108,21 +108,21 @@ SELECT m.nim, m.nama AS mahasiswa_nama, m.jk, m.tgl_lahir, m.kota, d.nama AS dos
 FROM mahasiswa m
 LEFT JOIN dosen d ON m.kd_ds = d.kd_ds;
 ```
--JOIN MATAKULIAH AND DOSEN
+    ## JOIN MATAKULIAH AND DOSEN
 ```
 SELECT mk.kd_mk, mk.nama AS matakuliah_nama, mk.sks, d.nama AS dosen_nama
 FROM matakuliah mk
 JOIN jadwal_mengajar jm ON mk.kd_mk = jm.kd_mk
 JOIN dosen d ON jm.kd_ds = d.kd_ds;
 ```
--Join JadwalMengajar, Dosen, and Matakuliah
+    ## Join JadwalMengajar, Dosen, and Matakuliah
 ```
 SELECT jm.kd_mk, mk.nama AS matakuliah_nama, jm.kd_ds, d.nama AS dosen_nama, jm.hari, jm.jam, jm.ruang
 FROM jadwal_mengajar jm
 JOIN dosen d ON jm.kd_ds = d.kd_ds
 JOIN matakuliah mk ON jm.kd_mk = mk.kd_mk;
 ```
--Join KrsMahasiswa, Mahasiswa, Matakuliah, and Dosen
+    ## Join KrsMahasiswa, Mahasiswa, Matakuliah, and Dosen
 ```
 SELECT k.nim, m.nama AS mahasiswa_nama, k.kd_mk, mk.nama AS matakuliah_nama, mk.sks, k.kd_ds, d.nama AS dosen_nama
 FROM krs_mahasiswa k
